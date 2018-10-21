@@ -6,10 +6,13 @@ public class DashBehavior : MonoBehaviour {
 
     public Transform pointer;
     public AudioSource engine;
+    public Sprite carDashWithLight;
+    private SpriteRenderer spriteRenderer;
 
 	private void Start()
 	{
         Invoke("idleEngine", 2f);
+        spriteRenderer = GetComponent<SpriteRenderer>();
 	}
 
     private void idleEngine() 
@@ -18,13 +21,22 @@ public class DashBehavior : MonoBehaviour {
     }
 	private void Update()
 	{
-        if (Input.GetKey(KeyCode.RightArrow)) {
+        if (Input.GetKey(KeyCode.RightArrow))
+        {
             accelerate();
         }
-        else if (Input.GetKey(KeyCode.LeftArrow)) {
+        else if (Input.GetKey(KeyCode.LeftArrow))
+        {
             deccelerate();
         }
+        else if (Input.GetKey(KeyCode.C)) {
+            changeSprite();
+        }
 	}
+
+    void changeSprite() {
+        spriteRenderer.sprite = carDashWithLight;
+    }
 
     void accelerate() {
         throtle(-1);

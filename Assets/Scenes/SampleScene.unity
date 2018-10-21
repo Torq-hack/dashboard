@@ -632,3 +632,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pointer: {fileID: 776666956}
   engine: {fileID: 1289687096}
+  carDashWithLight: {fileID: 21300000, guid: ba2b68a18616344a1855ca84376681a4, type: 3}
